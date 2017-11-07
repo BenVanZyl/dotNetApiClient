@@ -14,8 +14,11 @@ namespace UnitTest
             {
                 IEnumerable<CurrencyCode> currencyCodes = client.GetValidPrimaryCurrencyCodes();
 
-                Assert.AreEqual(currencyCodes.Count(),1);
-                Assert.AreEqual(currencyCodes.First(), CurrencyCode.Xbt);
+                Assert.AreEqual(currencyCodes.Count(),4);
+                Assert.IsTrue(currencyCodes.Any(c => c == CurrencyCode.Xbt));
+                Assert.IsTrue(currencyCodes.Any(c => c == CurrencyCode.Eth));
+                Assert.IsTrue(currencyCodes.Any(c => c == CurrencyCode.Bch));
+                Assert.IsTrue(currencyCodes.Any(c => c == CurrencyCode.B2x));
             }
         }
 
@@ -26,9 +29,10 @@ namespace UnitTest
             {
                 IEnumerable<CurrencyCode> currencyCodes = client.GetValidSecondaryCurrencyCodes();
 
-                Assert.AreEqual(currencyCodes.Count(), 2);
-                Assert.AreEqual(currencyCodes.First(), CurrencyCode.Usd);
-                Assert.AreEqual(currencyCodes.Last(), CurrencyCode.Aud);
+                Assert.AreEqual(currencyCodes.Count(), 3);
+                Assert.IsTrue(currencyCodes.Any(c=> c== CurrencyCode.Aud));
+                Assert.IsTrue(currencyCodes.Any(c=> c== CurrencyCode.Usd));
+                Assert.IsTrue(currencyCodes.Any(c=> c== CurrencyCode.Nzd));
             }
         }
     }

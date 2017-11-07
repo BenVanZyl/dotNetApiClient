@@ -14,7 +14,7 @@ namespace UnitTest
                 var brokerageFees = client.GetBrokerageFees();
 
                 Assert.IsNotNull(brokerageFees);
-                Assert.AreEqual(3, brokerageFees.Count());
+                Assert.AreEqual(4, brokerageFees.Count());
 
                 var xbtFee = brokerageFees.FirstOrDefault(f => f.CurrencyCode == CurrencyCode.Xbt);
                 Assert.IsNotNull(xbtFee);
@@ -23,6 +23,9 @@ namespace UnitTest
                 Assert.IsNotNull(ethFee);
 
                 var bchFee = brokerageFees.FirstOrDefault(f => f.CurrencyCode == CurrencyCode.Bch);
+                Assert.IsNotNull(bchFee);
+
+                var b2xFee = brokerageFees.FirstOrDefault(f => f.CurrencyCode == CurrencyCode.B2x);
                 Assert.IsNotNull(bchFee);
             }
         }
